@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}Adopta Mascotas{% endblock %}
+{% block content %}
+<br>
+  <div class="container shadow-sm rounded px-3" style="background-image: url('{% static 'img/banner-2.jpg' %}'); margin-bottom: 100px;">
+    <div class="row">
+      <div class="col-lg-3 col-md-12"></div>
+      <div class="col-lg-6 col-md-12 my-3" style="background-color: rgba(255, 255, 255, 0.6);">
+        <h1 class="text-center">
+          <i class="fas fa-paw"></i>
+          Registrate
+          <i class="fas fa-paw"></i>
+        </h1>
+
+        <form class="g-3 needs-validation" novalidate>
+          <div class="mb-3">
+            <label for="validationCustomUsername" class="form-label">Nombre de Usuario</label>
+            <div class="input-group has-validation">
+              <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+              <div class="invalid-feedback">
+                Porfavor escoge un nombre de usuario.
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="validationCustomUsername" class="form-label">E-mail</label>
+            <div class="input-group has-validation">
+              <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+              <div class="invalid-feedback">
+                Porfavor escoge un E-mail.
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="validationCustomUsername" class="form-label">Contraseña</label>
+            <div class="input-group has-validation">
+              <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+              <div class="invalid-feedback">
+                Porfavor escoge una contraseña.
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="validationCustomUsername" class="form-label">Confirma la contraseña</label>
+            <div class="input-group has-validation">
+              <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+              <div class="invalid-feedback">
+                Porfavor confirma tu contraseña.
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="validationCustom04" class="form-label">Seleccionar tipo de usuario</label>
+            <select class="form-select" id="validationCustom04" required>
+              <option selected value="">Tipo de usuario</option>
+              <option value="2">Organización</option>
+              <option value="1">Usuario corriente</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid state.
+            </div>
+          </div>
+
+          <button class="btn btn-primary mb-3" type="submit">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{%endblock%}

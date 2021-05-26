@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+/* Start index css */
+.caption-top {
+  top: auto;
+  bottom: 70px;
+}
+
+.img-carousel{
+  max-height: 800px;
+}
+
+@media (max-width: 1530px) {
+  .img-carousel{
+    height: 500px;
+  }
+}
+@media (max-width: 1000px) {
+  .img-carousel{
+    height: 300px;
+  }
+}
+
+.prev-gradient{
+  background-image: linear-gradient(to left, rgba(0,0,0,0), rgba(0,0,0,0.3));
+}
+
+.next-gradient{
+  background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.3));
+}
+/* End index css */
+
+/* Start footer css */
+
+.link-footer {
+  text-decoration: none;
+  transition: 0.3s;
+  color: white;
+}
+
+.link-footer:hover {
+  color: #ccc;
+}
+
+/* End footer css */
+
+/* Start adopta_index css */
+
+.descripcion{
+  width: 400px;
+  padding-right: 24px;
+}
+
+@media (max-width: 1130px) {
+  .descripcion{
+    padding-right: 16px;
+    width: 350px;
+  }
+}
+@media (max-width: 800px) {
+  .descripcion{
+    padding-right: 0;
+    width: 270px;
+  }
+}
+
+
+/* End adopta_index css */
+
+/* Start blog_index css */
+
+.blog-img{
+  transition: 0.3s;
+  height: 250px;
+}
+
+.blog-img:hover{
+  height: 100%;
+}
+
+/* End blog_index css */
+
+.media-link{
+  color: #2D728F;
+  border-color: #2D728F;
+}
+.media-link:hover{
+  color: white;
+  background-color: #2D728F;
+  border-color: #2D728F;
+}

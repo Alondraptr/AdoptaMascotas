@@ -1,0 +1,77 @@
+ 
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ {% load static %}
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'css/custom_style.css' %}">
+  <title>{% block title%}Adopta Mascotas{% endblock %}</title>
+  <link rel="shortcut icon" href="{% static 'img/paw.png' %}">
+  <script src="https://kit.fontawesome.com/2e7b48372e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2D728F;">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/adopta">Adopta</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/organizaciones">Organizaciones</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/blog">Blog</a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/registro">Registro</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/ingreso">Ingresar</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% block content %}{% endblock %}    
+  <footer class="text-center text-white pt-4" style="background-color: #F49E4C;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <ul class="list-unstyled text-center">
+            <li class="mb-4"> <h4> <a href="index.html" class="link-footer"> Inicio </a> </h4> </li>
+            <li class="mb-4"> <h4> <a href="adopta_index.html" class="link-footer"> Adopta </a> </h4> </li>
+            <li class="mb-4"> <h4> <a href="organizaciones_index.html" class="link-footer"> Organizaciones </a> </h4> </li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <ul class="list-unstyled text-center">
+            <li class="mb-4"> <h4> <a href="login.html" class="link-footer"> Inicio sesión </a> </h4> </li>
+            <li class="mb-4"> <h4> <a href="register.html" class="link-footer"> Registrate </a> </h4> </li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <img src="{% static 'img/logo/min.png' %}" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center p-3" style="background-color: #AB3428;">
+      © 2021 Copyright: <strong> Adopta Mascotas </strong>
+    </div>
+  </footer>
+  <script src="{% static 'js/bootstrap.bundle.js'%}"></script>
+</body>
+</html>

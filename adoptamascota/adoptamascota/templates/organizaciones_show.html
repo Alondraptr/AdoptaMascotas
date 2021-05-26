@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}Adopta Mascotas{% endblock %}
+{% block content %}
+  <div class="container bg-white shadow-sm rounded" style="margin-bottom: 55px;">
+    <h1 class="text-center mt-2">Apoyanos</h1>
+    <hr>
+    <div class="row pb-3">
+      <div class="col-md-5"></div>
+      <div class="col-md-7">
+        <h4 class="text-center">Organizacion Nicaraguense de protección y rescate animal</h4>
+      </div>
+      <div class="col-md-5">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="{% static 'img/cv-3.jpg' %}" class="d-block w-100 rounded" height="300" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'img/cv-5.jpg' %}" class="d-block w-100 rounded" height="300" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'img/cv-6.jpg' %}" class="d-block w-100 rounded" height="300" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <div class="card">
+          <div class="card-header text-white" style="background-color: #3B8EA5;">
+            Detalles de la Organización
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" style="height: 218px;">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae sit dolorum provident temporibus,
+              voluptatem officiis. Ratione hic maiores assumenda temporibus illum ab! Ducimus magnam non ea delectus
+              earum impedit voluptatem!
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae sit dolorum provident temporibus,
+              voluptatem officiis. Ratione hic maiores assumenda temporibus illum ab! Ducimus magnam non ea delectus
+              earum impedit voluptatem!
+            </li>
+            <li class="list-group-item">Como apoyarnos</li>
+          </ul>
+        </div>
+        <a class="btn btn-primary mt-5" href="#">Contáctanos</a>
+      </div>
+    </div>
+    <div class="w-100 d-flex justify-content-center py-3">
+      <a class="btn btn-outline-dark btn-lg m-1 media-link" href="#">
+        <i class="bi bi-facebook" style="width: 26px; height: 31px;"></i>
+      </a>
+      <a class="btn btn-outline-dark btn-lg media-link m-1" href="#">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a class="btn btn-outline-dark btn-lg media-link m-1" href="#">
+        <i class="bi bi-youtube"></i>
+      </a>
+      <a class="btn btn-outline-dark btn-lg media-link m-1" href="#">
+        <i class="bi bi-twitter"></i>
+      </a>
+    </div>
+  </div>
+
+{%endblock%}
