@@ -9,7 +9,7 @@ class OrganizationAddForm(forms.ModelForm):
     mail = forms.EmailField()
     phone = forms.IntegerField()
     city = forms.CharField(max_length=100)
-    img = forms.FileField()    
+    # img = forms.FileField()
 
     class Meta:
         model = Organization

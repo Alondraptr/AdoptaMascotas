@@ -15,12 +15,6 @@ def adopta(request):
 	doc = a.render()
 	return HttpResponse(doc)
 
-def organizaciones(request):
-
-	a = get_template("org/organizaciones_index.html")
-	doc = a.render()
-	return HttpResponse(doc)
-
 def blog(request):
 
 	a = get_template("blog_index.html")

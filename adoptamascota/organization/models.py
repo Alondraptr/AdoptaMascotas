@@ -9,7 +9,7 @@ class Organization(models.Model):
     mail = models.CharField(max_length=100)
     phone = models.IntegerField()
     city = models.CharField(max_length=100)
-    img = models.FileField()
+    img = models.FileField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
  

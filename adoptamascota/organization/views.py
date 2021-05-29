@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Organization
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseForbidden, HttpResponseRedirect
@@ -15,38 +15,34 @@ def create(request):
             form.save()
             return redirect('index')
         else:
-            import pdb; pdb.set_trace()
             # TODO: Rael hace lo que tenes que hacer
-            return render(request,'organization/create.html',{'form': form, 'erros': form.errors})
+            return render(request,'organization/form.html',{'form': form, 'erros': form.errors})
     else:
         form = OrganizationAddForm()
 
-    return render(request,'organization/create.html',{'form': form})
+    return render(request,'organization/form.html',{'form': form})
 
 
 class OrganizationListView(ListView):
     model = Organization
+    template_name = 'organization/index.html'
+
+    def get_queryset(self):
+        return self.model.objects.all()
 
 class OrganizationDetailView(DetailView):
     model = Organization
 
-class OrganizationActualizar(SuccessMessageMixin, UpdateView):
+class OrganizationUpdateView(SuccessMessageMixin, UpdateView):
     model = Organization
-    form = Organization
-    fields = "__all__"
-    success_message = 'Organizacion Actualizado Correctamente !'
+    form_class = OrganizationAddForm
+    template_name = 'organization/form.html'
 
-    # Redireccionamos a la página principal luego de actualizar un registro o Organization
     def get_success_url(self):
-        return reverse('index')
+        org_id = self.object.pk
+        return reverse_lazy('show', kwargs={ 'pk': org_id })
 
-class OrganizationEliminar(SuccessMessageMixin, DeleteView):
+class OrganizationDeleteView( DeleteView):
     model = Organization
-    form = Organization
-    fields = "__all__"
-
-    # Redireccionamos a la página principal luego de eliminar un registro o Organization
-    def get_success_url(self):
-        success_message = 'Organizacion Eliminado Correctamente !'
-        messages.success(self.request, (success_message))
-        return reverse('index')
+    template_name = 'organization/show.html'
+    success_url = reverse_lazy('index')
