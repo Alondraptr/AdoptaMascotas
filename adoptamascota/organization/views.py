@@ -8,19 +8,19 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseForbidden, HttpResponseRedirect
 from .form import OrganizationAddForm
 
-def create(request):
-    if request.method == 'POST':
-        form = OrganizationAddForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('index')
-        else:
-            # TODO: Rael hace lo que tenes que hacer
-            return render(request,'organization/form.html',{'form': form, 'erros': form.errors})
-    else:
-        form = OrganizationAddForm()
-
-    return render(request,'organization/form.html',{'form': form})
+#def create(request):
+#    if request.method == 'POST':
+#        form = OrganizationAddForm(request.POST)
+#        if form.is_valid():
+#            form.save()
+#            return redirect('index')
+#        else:
+#            # TODO: Rael hace lo que tenes que hacer
+#            return render(request,'organization/form.html',{'form': form, 'erros': form.errors})
+#    else:
+#        form = OrganizationAddForm()
+#
+#    return render(request,'organization/form.html',{'form': form})
 
 
 class OrganizationListView(ListView):
@@ -32,6 +32,15 @@ class OrganizationListView(ListView):
 
 class OrganizationDetailView(DetailView):
     model = Organization
+
+class OrganizationCreateView(CreateView):
+    model = Organization
+    form_class = OrganizationAddForm
+    template_name = 'organization/form.html'
+    
+    def get_success_url(self):
+        org_id = self.object.pk
+        return reverse_lazy('show', kwargs={ 'pk': org_id })
 
 class OrganizationUpdateView(SuccessMessageMixin, UpdateView):
     model = Organization

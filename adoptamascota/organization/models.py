@@ -3,11 +3,11 @@ from django.utils import timezone
  
 # Creación de campos de la tabla 'organization' 
 class Organization(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique = True)
     description = models.CharField(max_length=250)
     support = models.CharField(max_length=100)
-    mail = models.CharField(max_length=100)
-    phone = models.IntegerField()
+    mail = models.CharField(max_length=100, unique = True)
+    phone = models.IntegerField(unique = True)
     city = models.CharField(max_length=100)
     img = models.FileField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)

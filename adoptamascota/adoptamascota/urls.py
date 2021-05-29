@@ -16,13 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
-from organization.views import OrganizationListView, OrganizationDetailView, OrganizationUpdateView, OrganizationDeleteView
-from organization import views as organization_views
+from organization.views import OrganizationListView, OrganizationCreateView, OrganizationDetailView, OrganizationUpdateView, OrganizationDeleteView
+#from organization import views as organization_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('organization/', OrganizationListView.as_view(template_name = "organization/index.html"), name='index'),
     path('organization/<int:pk>', OrganizationDetailView.as_view(template_name = "organization/show.html"), name='show'),
-    path('organization/create', organization_views.create, name='create'),
+    #path('organization/create', organization_views.create, name='create'),
+    path('organization/create', OrganizationCreateView.as_view(template_name = "organization/form.html"), name='create'),
     path('organization/edit/<int:pk>', OrganizationUpdateView.as_view(template_name = "organization/form.html"), name='edit'),
     path('organization/delete/<int:pk>', OrganizationDeleteView.as_view(), name='delete'),
 
