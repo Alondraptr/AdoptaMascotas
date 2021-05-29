@@ -17,7 +17,7 @@ def adopta(request):
 
 def organizaciones(request):
 
-	a = get_template("organizaciones_index.html")
+	a = get_template("org/organizaciones_index.html")
 	doc = a.render()
 	return HttpResponse(doc)
 

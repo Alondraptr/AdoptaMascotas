@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Organization
@@ -6,21 +6,29 @@ from django.urls import reverse
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseForbidden, HttpResponseRedirect
+from .form import OrganizationAddForm
+
+def create(request):
+    if request.method == 'POST':
+        form = OrganizationAddForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+        else:
+            import pdb; pdb.set_trace()
+            # TODO: Rael hace lo que tenes que hacer
+            return render(request,'organization/create.html',{'form': form, 'erros': form.errors})
+    else:
+        form = OrganizationAddForm()
+
+    return render(request,'organization/create.html',{'form': form})
+
 
 class OrganizationListView(ListView):
     model = Organization
 
 class OrganizationDetailView(DetailView):
     model = Organization
-
-class OrganizationCreateView(SuccessMessageMixin, CreateView):
-    model = Organization
-    success_message = 'Organizacion Creado Correctamente !'
-    fields = ['name', 'description']
-
-    # Redireccionamos a la página principal luego de crear un registro o Organization
-    def get_success_url(self):
-        return reverse('index')
 
 class OrganizationActualizar(SuccessMessageMixin, UpdateView):
     model = Organization
