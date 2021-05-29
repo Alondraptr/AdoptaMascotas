@@ -27,6 +27,7 @@ urlpatterns = [
     path('organization/edit/<int:pk>', OrganizationUpdateView.as_view(template_name = "organization/form.html"), name='edit'),
     path('organization/delete/<int:pk>', OrganizationDeleteView.as_view(), name='delete'),
 
+
     path('', views.index),
     path('adopta/', views.adopta),
     path('blog/', views.blog),

@@ -19,7 +19,7 @@
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="{% static 'img/cv-3.jpg' %}" class="d-block w-100 rounded" height="300" alt="...">
+              <img src="{{organization.img.url}}" class="d-block w-100 rounded" height="300" alt="...">
             </div>
             <div class="carousel-item">
               <img src="{% static 'img/cv-5.jpg' %}" class="d-block w-100 rounded" height="300" alt="...">
@@ -96,18 +96,29 @@
       </div>
     </div>
     <div class="w-100 d-flex justify-content-center py-3">
-      <a class="btn btn-outline-dark btn-lg m-1 media-link" href="#">
-        <i class="bi bi-facebook" style="width: 26px; height: 31px;"></i>
-      </a>
-      <a class="btn btn-outline-dark btn-lg media-link m-1" href="#">
-        <i class="bi bi-instagram"></i>
-      </a>
-      <a class="btn btn-outline-dark btn-lg media-link m-1" href="#">
-        <i class="bi bi-youtube"></i>
-      </a>
-      <a class="btn btn-outline-dark btn-lg media-link m-1" href="#">
-        <i class="bi bi-twitter"></i>
-      </a>
+      {% if organization.fb_url %}
+        <a class="btn btn-outline-dark btn-lg m-1 media-link" href="{{ organization.fb_url }}" target="_blank">
+          <i class="bi bi-facebook" style="width: 26px; height: 31px;"></i>
+        </a>
+      {% endif %}
+
+      {% if organization.ig_url %}
+        <a class="btn btn-outline-dark btn-lg media-link m-1" href="{{ organization.ig_url }}" target="_blank">
+          <i class="bi bi-instagram"></i>
+        </a>
+      {% endif %}
+
+      {% if organization.yt_url %}
+        <a class="btn btn-outline-dark btn-lg media-link m-1" href="{{ organization.yt_url }}" target="_blank">
+          <i class="bi bi-youtube"></i>
+        </a>
+      {% endif %}
+
+      {% if organization.tw_url %}
+        <a class="btn btn-outline-dark btn-lg media-link m-1" href="{{ organization.tw_url }}" target="_blank">
+          <i class="bi bi-twitter"></i>
+        </a>
+      {% endif %}
     </div>
   </div>
 

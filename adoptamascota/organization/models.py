@@ -9,7 +9,13 @@ class Organization(models.Model):
     mail = models.CharField(max_length=100, unique = True)
     phone = models.IntegerField(unique = True)
     city = models.CharField(max_length=100)
-    img = models.FileField(null=True)
+    img = models.ImageField(upload_to='org_img', blank=True, default='')
+    fb_url = models.CharField(max_length=200, blank=True, default='')
+    ig_url = models.CharField(max_length=200, blank=True, default='')
+    yt_url = models.CharField(max_length=200, blank=True, default='')
+    tw_url = models.CharField(max_length=200, blank=True, default='')
+
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
  

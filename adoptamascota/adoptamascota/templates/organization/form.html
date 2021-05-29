@@ -15,13 +15,14 @@
 
       <hr>
 
-      <form class="g-3 needs-validation" novalidate method="POST"> {% csrf_token %}
+      <form class="g-3 needs-validation" novalidate method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
         <div class="mb-3">
           <label for="OrgName" class="form-label">Nombre</label>
           <div class="input-group has-validation">
             <input type="text" class="form-control" id="OrgName" aria-describedby="inputGroupPrepend" required name="name" value="{{ organization.name }}">
             <div class="invalid-feedback">
-              Porfavor escoge un nombre.
+              Por favor digite un nombre.
             </div>
           </div>
         </div>
@@ -31,7 +32,7 @@
           <div class="input-group has-validation">
             <textarea class="form-control" id="OrgDescription" aria-describedby="inputGroupPrepend" required name="description">{{ organization.description }}</textarea>
             <div class="invalid-feedback">
-              Porfavor escoge una descripción.
+              Por favor digite una descripción.
             </div>
           </div>
         </div>
@@ -41,7 +42,7 @@
           <div class="input-group has-validation">
             <input type="text" class="form-control" id="OrgSupport" aria-describedby="inputGroupPrepend" required name="support" value="{{ organization.support }}">
             <div class="invalid-feedback">
-              Porfavor escoge un apoyo.
+              Por favor digite un apoyo.
             </div>
           </div>
         </div>
@@ -51,39 +52,69 @@
           <div class="input-group has-validation">
             <input type="text" class="form-control" id="OrgMail" aria-describedby="inputGroupPrepend" required name="mail" value="{{ organization.mail }}">
             <div class="invalid-feedback">
-              Porfavor escoge un correo.
+              Por favor digite un correo.
             </div>
           </div>
         </div>
 
         <div class="mb-3">
-          <label for="OrgPhone" class="form-label">Telefono</label>
+          <label for="OrgPhone" class="form-label">Teléfono</label>
           <div class="input-group has-validation">
             <input type="text" class="form-control" id="OrgPhone" aria-describedby="inputGroupPrepend" required name="phone" value="{{ organization.phone }}">
             <div class="invalid-feedback">
-              Porfavor escoge un telefono.
+              Por favor digite un teléfono.
             </div>
           </div>
         </div>
 
         <div class="mb-3">
-          <label for="OrgCity" class="form-label">Ciudad</label>
-          <div class="input-group has-validation">
-            <input type="text" class="form-control" id="OrgCity" aria-describedby="inputGroupPrepend" required name="city" value="{{ organization.city }}">
-            <div class="invalid-feedback">
-              Porfavor escoge una ciudad.
-            </div>
-          </div>
+          <label for="city" class="form-label">Departamento</label>
+          <select class="form-select" name="city">
+            {% for city in citys %}
+              {% if city == organization.city %}
+                <option value="{{city}}" selected="selected">{{city}}</option>
+              {% else %}
+                <option value="{{city}}">{{city}}</option>
+              {% endif %}
+            {% endfor %}
+          </select>
         </div>
-        <!--
+        
         <div class="mb-3">
           <label for="OrgImg" class="form-label">Imagen</label>
           <div class="input-group has-validation">
             <input type="file" class="form-control" accept="image/*" id="OrgImg" aria-describedby="inputGroupPrepend"  name="img">
-        
           </div>
         </div>
-        -->
+
+        <div class="mb-3">
+          <label for="Orgfb_url" class="form-label">Facebook</label>
+          <div class="input-group">
+            <input type="text" class="form-control" name="fb_url" value="{{ organization.fb_url }}">
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="Orgig_url" class="form-label">Instagram</label>
+          <div class="input-group">
+            <input type="text" class="form-control" name="ig_url" value="{{ organization.ig_url }}">
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="Orgyt_url" class="form-label">YouTube</label>
+          <div class="input-group">
+            <input type="text" class="form-control" name="yt_url" value="{{ organization.yt_url }}">
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="Orgtw_url" class="form-label">Twitter</label>
+          <div class="input-group">
+            <input type="text" class="form-control" name="tw_url" value="{{ organization.tw_url }}">
+          </div>
+        </div>
+
         <button class="btn btn-primary mb-3" type="submit">Enviar</button>
       </form>
 

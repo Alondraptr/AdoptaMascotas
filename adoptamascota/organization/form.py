@@ -9,8 +9,12 @@ class OrganizationAddForm(forms.ModelForm):
     mail = forms.EmailField()
     phone = forms.IntegerField()
     city = forms.CharField(max_length=100)
-    # img = forms.FileField()
+    img = forms.ImageField(required=False)
+    fb_url = forms.CharField(max_length=200, required=False)
+    ig_url = forms.CharField(max_length=200, required=False)
+    yt_url = forms.CharField(max_length=200, required=False)
+    tw_url = forms.CharField(max_length=200, required=False)
 
     class Meta:
         model = Organization
-        fields = ('name', 'description','support','mail','phone','city')
+        fields = '__all__'

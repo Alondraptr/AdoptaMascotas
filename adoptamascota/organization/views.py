@@ -22,7 +22,6 @@ from .form import OrganizationAddForm
 #
 #    return render(request,'organization/form.html',{'form': form})
 
-
 class OrganizationListView(ListView):
     model = Organization
     template_name = 'organization/index.html'
@@ -38,6 +37,14 @@ class OrganizationCreateView(CreateView):
     form_class = OrganizationAddForm
     template_name = 'organization/form.html'
     
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        # Add in a QuerySet of all the books
+        context['citys'] = ['Managua', 'Leon', 'Granada', 'Masaya', 'Chontales', 'Carazo']
+        return context
+
+
     def get_success_url(self):
         org_id = self.object.pk
         return reverse_lazy('show', kwargs={ 'pk': org_id })
@@ -46,6 +53,13 @@ class OrganizationUpdateView(SuccessMessageMixin, UpdateView):
     model = Organization
     form_class = OrganizationAddForm
     template_name = 'organization/form.html'
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        # Add in a QuerySet of all the books
+        context['citys'] = ['Managua', 'Leon', 'Granada', 'Masaya', 'Chontales', 'Carazo']
+        return context
 
     def get_success_url(self):
         org_id = self.object.pk
