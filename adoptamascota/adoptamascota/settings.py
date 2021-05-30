@@ -133,8 +133,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-MEDIA_URL = 'adoptamascota/organization/media/'
+MEDIA_URL = 'media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR,  'organization/media')
+MEDIA_ROOT = os.path.join(BASE_DIR,  'media')
 
 

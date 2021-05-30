@@ -30,7 +30,11 @@
       {% for organization in object_list %}
         <div class="col-xl-3 col-sm-6 mb-2">
           <div class="card">
-            <img src="{% static 'img/fd-1' %}" class="card-img-top" alt="..." height="175">
+            {%if organization.img%}
+                <img src="{{ organization.img.url }}" class="card-img-top" alt="..." height="175">
+            {%else%}
+                 <img src="{% static 'img/logo/cubierta.png'%}" class="card-img-top" alt="..." height="175">
+            {%endif%}
             <div class="card-body">
               <p class="card-text text-center"> {{ organization.name }} </p>
               <div class="d-flex justify-content-center">

@@ -83,8 +83,15 @@
         <div class="mb-3">
           <label for="OrgImg" class="form-label">Imagen</label>
           <div class="input-group has-validation">
-            <input type="file" class="form-control" accept="image/*" id="OrgImg" aria-describedby="inputGroupPrepend"  name="img">
+            <input type="file" class="form-control" accept="image/*" id="OrgImg" aria-describedby="inputGroupPrepend" name="img" value="{{organization.img.url}}">
           </div>
+        {%if organization.img%}
+            <div>
+              <br>
+              <p>Imagen:</p>
+               <img src="{{organization.img.url}}" height="100" wigth="100" alt="...">
+            </div>
+        {%endif%}
         </div>
 
         <div class="mb-3">

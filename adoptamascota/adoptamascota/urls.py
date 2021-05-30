@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 from organization.views import OrganizationListView, OrganizationCreateView, OrganizationDetailView, OrganizationUpdateView, OrganizationDeleteView
 #from organization import views as organization_views
 urlpatterns = [
@@ -27,10 +29,12 @@ urlpatterns = [
     path('organization/edit/<int:pk>', OrganizationUpdateView.as_view(template_name = "organization/form.html"), name='edit'),
     path('organization/delete/<int:pk>', OrganizationDeleteView.as_view(), name='delete'),
 
-
     path('', views.index),
     path('adopta/', views.adopta),
     path('blog/', views.blog),
     path('registro/', views.registro),
     path('ingreso/', views.ingreso),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

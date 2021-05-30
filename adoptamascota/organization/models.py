@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from PIL import Image
  
 # Creación de campos de la tabla 'organization' 
 class Organization(models.Model):
