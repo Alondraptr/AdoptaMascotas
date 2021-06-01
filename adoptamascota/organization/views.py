@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseForbidden, HttpResponseRedirect
 from .form import OrganizationAddForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 #def create(request):
 #    if request.method == 'POST':
@@ -32,7 +33,7 @@ class OrganizationListView(ListView):
 class OrganizationDetailView(DetailView):
     model = Organization
 
-class OrganizationCreateView(CreateView):
+class OrganizationCreateView(LoginRequiredMixin, CreateView):
     model = Organization
     form_class = OrganizationAddForm
     template_name = 'organization/form.html'
@@ -44,12 +45,11 @@ class OrganizationCreateView(CreateView):
         context['citys'] = ['Managua', 'Leon', 'Granada', 'Masaya', 'Chontales', 'Carazo']
         return context
 
-
     def get_success_url(self):
         org_id = self.object.pk
         return reverse_lazy('show', kwargs={ 'pk': org_id })
 
-class OrganizationUpdateView(SuccessMessageMixin, UpdateView):
+class OrganizationUpdateView(LoginRequiredMixin,SuccessMessageMixin, UpdateView):
     model = Organization
     form_class = OrganizationAddForm
     template_name = 'organization/form.html'
@@ -65,7 +65,8 @@ class OrganizationUpdateView(SuccessMessageMixin, UpdateView):
         org_id = self.object.pk
         return reverse_lazy('show', kwargs={ 'pk': org_id })
 
-class OrganizationDeleteView( DeleteView):
+class OrganizationDeleteView( LoginRequiredMixin, DeleteView):
     model = Organization
     template_name = 'organization/show.html'
     success_url = reverse_lazy('index')
+

@@ -8,7 +8,6 @@ def index(request):
 	a = get_template("index.html")
 	doc = a.render()
 	return HttpResponse(doc)
-
 def adopta(request):
 
 	a = get_template("adopta_index.html")
