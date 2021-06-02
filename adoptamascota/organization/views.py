@@ -47,7 +47,7 @@ class OrganizationCreateView(CreateView):
 
     def get_success_url(self):
         org_id = self.object.pk
-        return reverse_lazy('show', kwargs={ 'pk': org_id })
+        return reverse_lazy('org_show', kwargs={ 'pk': org_id })
 
 class OrganizationUpdateView(SuccessMessageMixin, UpdateView):
     model = Organization
@@ -63,9 +63,9 @@ class OrganizationUpdateView(SuccessMessageMixin, UpdateView):
 
     def get_success_url(self):
         org_id = self.object.pk
-        return reverse_lazy('show', kwargs={ 'pk': org_id })
+        return reverse_lazy('org_show', kwargs={ 'pk': org_id })
 
 class OrganizationDeleteView(DeleteView):
     model = Organization
     template_name = 'organization/show.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('org_index')

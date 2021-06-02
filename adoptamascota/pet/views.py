@@ -34,7 +34,7 @@ class PetCreateView(CreateView):
 
     def get_success_url(self):
         pet_id = self.object.pk
-        return reverse_lazy('show', kwargs={ 'pk': pet_id })
+        return reverse_lazy('pet_show', kwargs={ 'pk': pet_id })
 
 class PetUpdateView(SuccessMessageMixin, UpdateView):
     model = Pet
@@ -50,9 +50,9 @@ class PetUpdateView(SuccessMessageMixin, UpdateView):
 
     def get_success_url(self):
         pet_id = self.object.pk
-        return reverse_lazy('show', kwargs={ 'pk': pet_id })
+        return reverse_lazy('pet_show', kwargs={ 'pk': pet_id })
 
 class PetDeleteView( DeleteView):
     model = Pet
     template_name = 'pet/show.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('pet_index')

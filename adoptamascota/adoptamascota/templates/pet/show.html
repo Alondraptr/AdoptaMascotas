@@ -38,7 +38,7 @@
           </button>
         </div>
         <div class="mt-3 d-flex justify-content-center">
-          <a class="btn btn-success" href="{% url 'edit' pet.id %}">Editar</a>
+          <a class="btn btn-success" href="{% url 'pet_edit' pet.id %}">Editar</a>
           <div class="mx-2 mt-1" style="width: 0; height: 30px; border: 1px solid #ccc;"></div>
           <a class="btn btn-danger" href="#" data-bs-toggle="modal" data-bs-target="#deleteModel">Eliminar</a>
 
@@ -55,7 +55,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                  <form action="{% url 'delete' pk=pet.id %}" method="POST">{% csrf_token %}
+                  <form action="{% url 'pet_delete' pk=pet.id %}" method="POST">{% csrf_token %}
                     <button type="submit" class="btn btn-danger">Aceptar</button>
                   </form>
                 </div>
