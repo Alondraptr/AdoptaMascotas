@@ -19,9 +19,12 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 from organization.views import OrganizationListView, OrganizationCreateView, OrganizationDetailView, OrganizationUpdateView, OrganizationDeleteView
+from pet.views import PetListView, PetCreateView, PetDetailView, PetUpdateView, PetDeleteView
+
 #from organization import views as organization_views
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     path('organization/', OrganizationListView.as_view(template_name = "organization/index.html"), name='index'),
     path('organization/<int:pk>', OrganizationDetailView.as_view(template_name = "organization/show.html"), name='show'),
     #path('organization/create', organization_views.create, name='create'),
@@ -29,8 +32,13 @@ urlpatterns = [
     path('organization/edit/<int:pk>', OrganizationUpdateView.as_view(template_name = "organization/form.html"), name='edit'),
     path('organization/delete/<int:pk>', OrganizationDeleteView.as_view(), name='delete'),
 
+    path('pet/', PetListView.as_view(template_name = "pet/index.html"), name='index'),
+    path('pet/<int:pk>', PetDetailView.as_view(template_name = "pet/show.html"), name='show'),
+    path('pet/create', PetCreateView.as_view(template_name = "pet/form.html"), name='create'),
+    path('pet/edit/<int:pk>', PetUpdateView.as_view(template_name = "pet/form.html"), name='edit'),
+    path('pet/delete/<int:pk>', PetDeleteView.as_view(), name='delete'),
+
     path('', views.index),
-    path('adopta/', views.adopta),
     path('blog/', views.blog),
     path('registro/', views.registro),
     path('ingreso/', views.ingreso),

@@ -1,8 +1,8 @@
 from django.db import models
 from django.utils import timezone
 from PIL import Image
- 
-# Creación de campos de la tabla 'organization' 
+
+# Creación de campos de la tabla 'organization'
 class Organization(models.Model):
     name = models.CharField(max_length=100, unique = True)
     description = models.CharField(max_length=250)
@@ -19,6 +19,6 @@ class Organization(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
- 
+
     class Meta:
         db_table = 'organization' # Le doy de nombre 'organization' a nuestra tabla en la Base de Datos

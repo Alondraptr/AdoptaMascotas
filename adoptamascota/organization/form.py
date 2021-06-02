@@ -1,8 +1,8 @@
 from django import forms
 from .models import Organization
 
-class OrganizationAddForm(forms.ModelForm):
-    
+class OrganizationForm(forms.ModelForm):
+
     name = forms.CharField(max_length=100)
     description = forms.CharField(max_length=250)
     support = forms.CharField(max_length=100)

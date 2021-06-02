@@ -6,11 +6,11 @@ from django.urls import reverse, reverse_lazy
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseForbidden, HttpResponseRedirect
-from .form import OrganizationAddForm
+from .form import OrganizationForm
 
 #def create(request):
 #    if request.method == 'POST':
-#        form = OrganizationAddForm(request.POST)
+#        form = OrganizationForm(request.POST)
 #        if form.is_valid():
 #            form.save()
 #            return redirect('index')
@@ -18,7 +18,7 @@ from .form import OrganizationAddForm
 #            # TODO: Rael hace lo que tenes que hacer
 #            return render(request,'organization/form.html',{'form': form, 'erros': form.errors})
 #    else:
-#        form = OrganizationAddForm()
+#        form = OrganizationForm()
 #
 #    return render(request,'organization/form.html',{'form': form})
 
@@ -34,9 +34,9 @@ class OrganizationDetailView(DetailView):
 
 class OrganizationCreateView(CreateView):
     model = Organization
-    form_class = OrganizationAddForm
+    form_class = OrganizationForm
     template_name = 'organization/form.html'
-    
+
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
@@ -51,7 +51,7 @@ class OrganizationCreateView(CreateView):
 
 class OrganizationUpdateView(SuccessMessageMixin, UpdateView):
     model = Organization
-    form_class = OrganizationAddForm
+    form_class = OrganizationForm
     template_name = 'organization/form.html'
 
     def get_context_data(self, **kwargs):
@@ -65,7 +65,7 @@ class OrganizationUpdateView(SuccessMessageMixin, UpdateView):
         org_id = self.object.pk
         return reverse_lazy('show', kwargs={ 'pk': org_id })
 
-class OrganizationDeleteView( DeleteView):
+class OrganizationDeleteView(DeleteView):
     model = Organization
     template_name = 'organization/show.html'
     success_url = reverse_lazy('index')

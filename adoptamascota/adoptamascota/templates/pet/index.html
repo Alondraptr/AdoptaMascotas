@@ -2,48 +2,44 @@
 {% load static %}
 {% block title %}Adopta Mascotas{% endblock %}
 {% block content %}
-
   <div class="container bg-white shadow-sm rounded my-2">
     <div class="rounded pb-2" style="background-image: url('{% static 'img/banner-1.jpg' %}');">
-      <h1 class="text-center mt-3">Organizaciones</h1>
+      <h1 class="text-center mt-3">Animalitos en adopción</h1>
       <div class="d-flex justify-content-center">
-        <p class="text-center" style="width: 450px;">
+        <p class="descripcion">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, aliquam quidem? Possimus
         </p>
       </div>
       <div class="d-flex justify-content-center">
-        <h4 class="mt-2"> Seleccionar ciudad </h4>
+        <h4 class="mt-2"> Selecciona el tipo de animal </h4>
         <select class="form-select ms-2 py-2" aria-label="Default select example" style="height: 44px; width: 130px;">
-          <option selected>Todas</option>
-          <option value="1">Managua</option>
-          <option value="2">Masaya</option>
-          <option value="3">Granada</option>
-          <option value="4">Leon</option>
+          <option selected>Todos</option>
+          <option value="1">Perro</option>
+          <option value="2">Gato</option>
+          <option value="3">Conejo</option>
+          <option value="4">Aves</option>
         </select>
       </div>
     </div>
     <div class="d-flex justify-content-center">
-      <a class="btn btn-primary my-2" href="/organization/create"> Crear </a>
+      <a class="btn btn-primary my-2" href="/pet/create"> Crear </a>
       <hr class="ms-2 mt-4 w-100">
     </div>
     <div class="row pb-2">
-      {% for organization in object_list %}
+      {% for pet in object_list %}
         <div class="col-xl-3 col-sm-6 mb-2">
           <div class="card">
-            {%if organization.img%}
-                <img src="{{ organization.img.url }}" class="card-img-top" alt="..." height="175">
-            {%else%}
-                 <img src="{% static 'img/logo/cubierta.png'%}" class="card-img-top" alt="..." height="175">
-            {%endif%}
+            <img src="{% static 'img/cv-1.jpg' %}" class="card-img-top" alt="..." height="175">
             <div class="card-body">
-              <p class="card-text text-center"> {{ organization.name }} </p>
+              <p class="card-text text-center"> {{ pet.name }} </p>
               <div class="d-flex justify-content-center">
-                <a href="{{ organization.id }}" class="btn btn-primary">Ver más</a>
+                <a href="{{ pet.id }}" class="btn btn-primary">Ver más</a>
               </div>
             </div>
           </div>
         </div>
       {% endfor %}
     </div>
+
   </div>
-{%endblock%}
+{% endblock%}
