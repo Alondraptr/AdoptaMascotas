@@ -6,7 +6,6 @@ from django.contrib.auth.models import User
 import operator
 from django.urls import reverse, reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
-from django.http import HttpResponse, HttpResponseRedirect
 from .form import OrganizationAddForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 

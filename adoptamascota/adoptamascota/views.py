@@ -1,35 +1,26 @@
 from django.http import HttpResponse
+from django.shortcuts import render, redirect
 from django.template import Template, Context
-from django.template.loader import get_template
+
+from django.template import loader
+from django.contrib.auth.models import User
+
 
 # primera vista
 def index(request):
+	template = loader.get_template("index.html")
+	context = {}
+	return HttpResponse(template.render(context, request))
 
-	a = get_template("index.html")
-	doc = a.render()
-	return HttpResponse(doc)
 def adopta(request):
-
-	a = get_template("adopta_index.html")
-	doc = a.render()
-	return HttpResponse(doc)
+	template = loader.get_template("adopta_index.html")
+	context = {}
+	return HttpResponse(template.render(context, request))
 
 def blog(request):
-
-	a = get_template("blog_index.html")
-	doc = a.render()
-	return HttpResponse(doc)
-
-def registro(request):
-
-	a = get_template("register.html")
-	doc = a.render()
-	return HttpResponse(doc)
+	template = loader.get_template("blog_index.html")
+	context = {}
+	return HttpResponse(template.render(context, request))
 
 
-def ingreso(request):
-
-	a = get_template("login.html")
-	doc = a.render()
-	return HttpResponse(doc)
 
