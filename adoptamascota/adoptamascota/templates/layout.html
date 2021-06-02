@@ -72,7 +72,7 @@
           <li class="mb-4"> <h4> <a class="link-footer" href="{% url 'logout'%}?next={{request.path}}">Logout</a></h4></li>
         {% else %}
           <li class="mb-4"> <h4> <a href="{% url 'login'%}?next={{request.path}}" class="link-footer"> Inicio sesión </a> </h4> </li>
-          <li class="mb-4"> <h4> <a href="register.html" class="link-footer"> Registrate </a> </h4> </li>
+          <li class="mb-4"> <h4> <a href="{% url 'register'%}" class="link-footer"> Registrate </a> </h4> </li>
         {% endif %} 
           </ul>
         </div>

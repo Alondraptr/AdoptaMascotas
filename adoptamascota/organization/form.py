@@ -1,6 +1,7 @@
 from django import forms
 from .models import Organization
 
+
 class OrganizationAddForm(forms.ModelForm):
     
     name = forms.CharField(max_length=100)

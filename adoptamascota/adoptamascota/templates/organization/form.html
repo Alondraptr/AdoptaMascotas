@@ -14,11 +14,11 @@
       </h1>
 
       <hr>
-
       <form class="g-3 needs-validation" novalidate method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="mb-3">
           <label for="OrgName" class="form-label">Nombre</label>
+          <input type="hidden" name="user" value="{{user.id}}">
           <div class="input-group has-validation">
             <input type="text" class="form-control" id="OrgName" aria-describedby="inputGroupPrepend" required name="name" value="{{ organization.name }}">
             <div class="invalid-feedback">

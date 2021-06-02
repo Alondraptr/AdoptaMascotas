@@ -22,10 +22,12 @@
         </select>
       </div>
     </div>
-    <div>
+    {% if user.is_authenticated %}
+        <div>
       <a class="btn btn-primary" href="/organization/create"> Crear </a>
       <hr>
     </div>
+    {%endif%}
     <div class="row pb-2">
       {% for organization in object_list %}
         <div class="col-xl-3 col-sm-6 mb-2">

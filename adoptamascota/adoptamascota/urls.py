@@ -20,6 +20,7 @@ from django.conf.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
 from organization.views import OrganizationListView, OrganizationCreateView, OrganizationDetailView, OrganizationUpdateView, OrganizationDeleteView
+from users import views as users_views
 #from organization import views as organization_views
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,6 +30,9 @@ urlpatterns = [
     path('organization/create', OrganizationCreateView.as_view(template_name = "organization/form.html"), name='create'),
     path('organization/edit/<int:pk>', OrganizationUpdateView.as_view(template_name = "organization/form.html"), name='edit'),
     path('organization/delete/<int:pk>', OrganizationDeleteView.as_view(), name='delete'),
+
+    path('accounts/register', users_views.register, name='register'),
+    path('accounts/profile', users_views.profile, name='profile'),
 
     path('', views.index),
     path('adopta/', views.adopta),
