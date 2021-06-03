@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap4',
+    'users',
     'adoptamascota',
     'organization',
     'pet',
@@ -126,6 +127,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
@@ -137,5 +139,11 @@ STATICFILES_DIRS = (
 MEDIA_URL = 'media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR,  'media')
+
+# Redirect to home URL after login (Default redirects to /accounts/profile/)
+LOGIN_REDIRECT_URL = '/'
+
+LOGIN_URL = 'login'
+
 
 

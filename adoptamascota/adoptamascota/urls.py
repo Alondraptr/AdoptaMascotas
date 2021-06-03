@@ -16,11 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
+from django.conf.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
 from organization.views import OrganizationListView, OrganizationCreateView, OrganizationDetailView, OrganizationUpdateView, OrganizationDeleteView
 from pet.views import PetListView, PetCreateView, PetDetailView, PetUpdateView, PetDeleteView
 
+from users import views as users_views
 #from organization import views as organization_views
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -38,11 +40,19 @@ urlpatterns = [
     path('pet/edit/<int:pk>', PetUpdateView.as_view(template_name = "pet/form.html"), name='pet_edit'),
     path('pet/delete/<int:pk>', PetDeleteView.as_view(), name='pet_delete'),
 
+    path('accounts/register', users_views.register, name='register'),
+    path('accounts/profile', users_views.profile, name='profile'),
+
     path('', views.index),
     path('blog/', views.blog),
-    path('registro/', views.registro),
-    path('ingreso/', views.ingreso),
+
 ]
+
+#Add Django site authentication urls (for login, logout, password management)
+urlpatterns += [
+    path('accounts/', include('django.contrib.auth.urls')),
+]
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
