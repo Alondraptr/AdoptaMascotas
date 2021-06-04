@@ -34,24 +34,55 @@
           </button>
         </div>
       </div>
+
+      {% if user.is_authenticated %}
+        {% if user == blog.organization.user %}
+          <div class="mt-3 d-flex justify-content-center">
+            <a class="btn btn-success" href="{% url 'blog_edit' blog.id %}">Editar</a>
+            <div class="mx-2 mt-1" style="width: 0; height: 30px; border: 1px solid #ccc;"></div>
+            <a class="btn btn-danger" href="#" data-bs-toggle="modal" data-bs-target="#deleteModel">Eliminar</a>
+
+            <div class="modal fade" id="deleteModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">¿Desea Eliminar?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    Desea eliminar a la mascota: <br>
+                    <strong> {{ blog.name }} </strong>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <form action="{% url 'blog_delete' pk=blog.id %}" method="POST">{% csrf_token %}
+                      <button type="submit" class="btn btn-danger">Aceptar</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {%endif%}
+      {%endif%}
     </div>
     <div class="row my-4">
       <div class="col-md-1"></div>
       <div class="col-md-6">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum incidunt beatae fugiat iusto unde, tempore magnam reprehenderit.
-        Cum illum temporibus saepe, voluptatum dignissimos aliquam maxime porro, harum dicta nisi quaerat.
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum incidunt beatae fugiat iusto unde, tempore magnam reprehenderit.
-        Cum illum temporibus saepe, voluptatum dignissimos aliquam maxime porro, harum dicta nisi quaerat.
+        <p class="text-center"> <strong> {{ blog.name }} </strong> </p>
         <br>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum incidunt beatae fugiat iusto unde, tempore magnam reprehenderit.
-        Cum illum temporibus saepe, voluptatum dignissimos aliquam maxime porro, harum dicta nisi quaerat.
+        {{ blog.description }}
       </div>
       <div class="col-md-1"></div>
       <div class="col-md-3">
         <div class="mx-auto" style="width: 300px;">
-          <img src="img/fd-2" class="rounded" alt="" width="300" height="200">
+          {% if blog.organization.img %}
+            <img src="{{ blog.organization.img.url }}" class="rounded" alt="" width="300" height="200">
+          {% else %}
+            <img src="{% static 'img/logo/cubierta.png'%}" class="rounded" alt="" width="300" height="200">
+          {% endif %}
         </div>
-        <a href="#" class="btn btn-primary d-block mt-2">Contáctanos</a>
+        <a href="/organization/{{ blog.organization.id }}" class="btn btn-primary d-block mt-2">Contáctanos</a>
       </div>
     </div>
   </div>

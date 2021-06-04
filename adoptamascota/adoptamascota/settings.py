@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'adoptamascota',
     'organization',
     'pet',
+    'blog',
 ]
 
 MIDDLEWARE = [

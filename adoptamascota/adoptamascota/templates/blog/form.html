@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}Adopta Mascotas{% endblock %}
+{% block content %}
+
+<div class="container shadow-sm rounded px-3" style="background-image: url('{% static 'img/banner-2.jpg' %}'); margin-bottom: 100px;">
+  <div class="row">
+    <div class="col-lg-3 col-md-12"></div>
+    <div class="col-lg-6 col-md-12 my-3" style="background-color: rgba(255, 255, 255, 0.6);">
+      <h1 class="text-center">
+        <i class="fas fa-paw"></i>
+          Nuevo Blog
+        <i class="fas fa-paw"></i>
+      </h1>
+
+      <hr>
+      <form class="g-3 needs-validation" novalidate method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="organization" value="{{ org_id }}">
+
+        <div class="mb-3">
+          <label for="BlogName" class="form-label">Nombre</label>
+          <div class="input-group has-validation">
+            <input type="text" class="form-control" id="BlogName" aria-describedby="inputGroupPrepend" required name="name" value="{{ blog.name }}">
+            <div class="invalid-feedback">
+              Por favor digite un nombre.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="BlogDescription" class="form-label">Descripción</label>
+          <div class="input-group has-validation">
+            <textarea class="form-control" id="BlogDescription" aria-describedby="inputGroupPrepend" required name="description">{{ blog.description }}</textarea>
+            <div class="invalid-feedback">
+              Por favor digite una descripción.
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary mb-3" type="submit">Enviar</button>
+      </form>
+
+    </div>
+  </div>
+</div>
+{%endblock%}
