@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% load static %}
-{% block title %}Adopta Mascotas{% endblock %}
+{% block title %}Adopta Mascotas - Formulario{% endblock %}
 {% block content %}
 
 <div class="container shadow-sm rounded px-3" style="background-image: url('{% static 'img/banner-2.jpg' %}'); margin-bottom: 100px;">
@@ -12,18 +12,14 @@
       Nueva Mascota
       <i class="fas fa-paw"></i>
       </h1>
-
       <hr>
-
       <form class="g-3 needs-validation" novalidate method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-
-        <input type="hidden" name="organization" value="1">
-
+        <input type="hidden" name="organization" value="{{organization}}">
         <div class="mb-3">
           <label for="PetName" class="form-label">Nombre</label>
           <div class="input-group has-validation">
-            <input type="text" class="form-control" id="PetName" aria-describedby="inputGroupPrepend" required name="name" value="{{ pet.name }}">
+            <input type="text" class="form-control" id="PetName" aria-describedby="inputGroupPrepend" required name="name" value="{{ object.name }}">
             <div class="invalid-feedback">
               Por favor digite un nombre.
             </div>
@@ -33,7 +29,7 @@
         <div class="mb-3">
           <label for="PetDescription" class="form-label">Descripción</label>
           <div class="input-group has-validation">
-            <textarea class="form-control" id="PetDescription" aria-describedby="inputGroupPrepend" required name="description">{{ pet.description }}</textarea>
+            <textarea class="form-control" id="PetDescription" aria-describedby="inputGroupPrepend" required name="description">{{ object.description }}</textarea>
             <div class="invalid-feedback">
               Por favor digite una descripción.
             </div>
@@ -56,14 +52,14 @@
         <div class="mb-3">
           <label for="PetBreed" class="form-label">Raza</label>
           <div class="input-group">
-            <input type="text" class="form-control" id="PetBreed" aria-describedby="inputGroupPrepend" name="breed" value="{% if pet.breed %}{{ pet.breed }}{% else %}No se sabe{% endif %}">
+            <input type="text" class="form-control" id="PetBreed" aria-describedby="inputGroupPrepend" name="breed" value="{% if object.breed %}{{ object.breed }}{% else %}No se sabe{% endif %}">
           </div>
         </div>
 
         <div class="mb-3">
           <label for="PetAge" class="form-label">Edad</label>
           <div class="input-group has-validation">
-            <input type="number" class="form-control" id="PetAge" min="1" max="100" required name="age" value="{{ pet.age }}">
+            <input type="number" class="form-control" id="PetAge" min="1" max="20" required name="age" value="{{ object.age }}">
             <div class="invalid-feedback">
               Por favor digite una Edad.
             </div>
@@ -73,7 +69,7 @@
         <div class="mb-3 form-check form-switch">
           <label class="form-check-label" for="PetCastrated">Castrado</label>
           <input class="form-check-input" type="checkbox" id="PetCastrated" name="castrated"
-          {% if pet.castrated %}
+          {% if object.castrated %}
             checked
           {% endif %}
           >
@@ -82,12 +78,13 @@
         <div class="mb-3">
           <label for="PetIllness" class="form-label">Enfermedades</label>
           <div class="input-group">
-            <textarea class="form-control" id="PetIllness" aria-describedby="inputGroupPrepend" name="illness">{% if pet.illness %}{{ pet.illness }}{% else %}No tiene{% endif %}</textarea>
+            <textarea class="form-control" id="PetIllness" aria-describedby="inputGroupPrepend" name="illness">{% if object.illness %}{{ object.illness }}{% else %}No tiene{% endif %}</textarea>
           </div>
         </div>
-
-        <button class="btn btn-primary mb-3" type="submit">Enviar</button>
-
+        <div>
+          <button class="btn btn-primary mb-3" type="submit">Enviar</button>
+          <button class="btn btn-danger mb-3" onclick="javascript:history.back();">Cancelar</button>
+        </div>
       </form>
     </div>
   </div>

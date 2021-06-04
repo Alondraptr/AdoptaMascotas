@@ -20,7 +20,7 @@ from django.conf.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
 from organization.views import OrganizationListView, OrganizationCreateView, OrganizationDetailView, OrganizationUpdateView, OrganizationDeleteView
-from pet.views import PetListView, PetCreateView, PetDetailView, PetUpdateView, PetDeleteView
+from pet.views import PetListView, PetCreateView, PetDetailView, PetUpdateView, PetDeleteView, OrgListView
 
 from users import views as users_views
 #from organization import views as organization_views
@@ -35,6 +35,7 @@ urlpatterns = [
     path('organization/delete/<int:pk>', OrganizationDeleteView.as_view(), name='org_delete'),
 
     path('pet/', PetListView.as_view(template_name = "pet/index.html"), name='pet_index'),
+    path('pet/org', OrgListView.as_view(template_name = "pet/org_pets.html"), name='org_pets'),
     path('pet/<int:pk>', PetDetailView.as_view(template_name = "pet/show.html"), name='pet_show'),
     path('pet/create', PetCreateView.as_view(template_name = "pet/form.html"), name='pet_create'),
     path('pet/edit/<int:pk>', PetUpdateView.as_view(template_name = "pet/form.html"), name='pet_edit'),
@@ -43,8 +44,8 @@ urlpatterns = [
     path('accounts/register', users_views.register, name='register'),
     path('accounts/profile', users_views.profile, name='profile'),
 
-    path('', views.index),
-    path('blog/', views.blog),
+    path('', views.index, name='index'),
+    path('blog/', views.blog, name='blog'),
 
 ]
 

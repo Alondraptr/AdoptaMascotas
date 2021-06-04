@@ -16,7 +16,7 @@ class Organization(models.Model):
     ig_url = models.CharField(max_length=200, blank=True, default='')
     yt_url = models.CharField(max_length=200, blank=True, default='')
     tw_url = models.CharField(max_length=200, blank=True, default='')
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

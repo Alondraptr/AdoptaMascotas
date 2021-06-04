@@ -7,6 +7,7 @@ import operator
 from django.urls import reverse, reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
 from .form import OrganizationForm
+from .filters import OrganizationCityFilter
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 #def create(request):
@@ -27,10 +28,14 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 class OrganizationListView(ListView):
     model = Organization
     template_name = 'organization/index.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filter']= OrganizationCityFilter(self.request.GET, queryset=self.get_queryset())
+        return context
 
-    def get_queryset(self):
-        return self.model.objects.all()
-
+    # def get_queryset(self):
+    # return self.model.objects.all()
 
 class OrganizationDetailView(DetailView):
     model = Organization
@@ -48,8 +53,7 @@ class OrganizationCreateView(LoginRequiredMixin, CreateView):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
         # Add in a QuerySet of all the cities
-
-        context['citys'] = ['Managua', 'Leon', 'Granada', 'Masaya', 'Chontales', 'Carazo']
+        context['citys'] = ['Managua', 'Leon', 'Granada', 'Masaya']
         return context
 
 
@@ -62,7 +66,7 @@ class OrganizationUpdateView(LoginRequiredMixin,SuccessMessageMixin, UpdateView)
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
         # Add in a QuerySet of all the books
-        context['citys'] = ['Managua', 'Leon', 'Granada', 'Masaya', 'Chontales', 'Carazo']
+        context['citys'] = ['Managua', 'Leon', 'Granada', 'Masaya']
         return context
 
     def get_success_url(self):

@@ -1,35 +1,32 @@
 {% extends "layout.html" %}
 {% load static %}
-{% block title %}Adopta Mascotas{% endblock %}
+{% block title %}Adopta Mascotas - Organizaciones{% endblock %}
 {% block content %}
 
   <div class="container bg-white shadow-sm rounded my-2">
     <div class="rounded pb-2" style="background-image: url('{% static 'img/banner-1.jpg' %}');">
       <h1 class="text-center mt-3">Organizaciones</h1>
       <div class="d-flex justify-content-center">
-        <p class="text-center" style="width: 450px;">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, aliquam quidem? Possimus
+        <p class="text-center" style="width: 750px; ">
+          Conoce que organizaciones se ubican en tu ciudad y ¡adopta a un nuevo amigo!. También encontrarás como comunicarte con las organizaciones y como apoyarlas, para que sigan realizando su labor.
         </p>
       </div>
       <div class="d-flex justify-content-center">
-        <h4 class="mt-2"> Seleccionar ciudad </h4>
-        <select class="form-select ms-2 py-2" aria-label="Default select example" style="height: 44px; width: 130px;">
-          <option selected>Todas</option>
-          <option value="1">Managua</option>
-          <option value="2">Masaya</option>
-          <option value="3">Granada</option>
-          <option value="4">Leon</option>
-        </select>
+       <form method="GET" >  
+                {{ filter.form }}
+         <input type="submit" value="Enviar" /> 
+       </form>
       </div>
     </div>
+
     <div class="d-flex justify-content-center">
       {% if user.is_authenticated %}
-        <a class="btn btn-primary my-2" href="/organization/create"> Crear </a>
+         <!-- <a class="btn btn-primary my-2" href="/organization/create"> Crear </a> -->
       {%endif%}
       <hr class="ms-2 mt-4 w-100">
     </div>
     <div class="row pb-2">
-      {% for organization in object_list %}
+      {% for organization in filter.qs  %}
         <div class="col-xl-3 col-sm-6 mb-2">
           <div class="card">
             {%if organization.img%}
