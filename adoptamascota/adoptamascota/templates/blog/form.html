@@ -21,7 +21,7 @@
         <div class="mb-3">
           <label for="BlogName" class="form-label">Nombre</label>
           <div class="input-group has-validation">
-            <input type="text" class="form-control" id="BlogName" aria-describedby="inputGroupPrepend" required name="name" value="{{ blog.name }}">
+            <input type="text" class="form-control" id="BlogName" aria-describedby="inputGroupPrepend" required name="name" value="{{ object.name }}">
             <div class="invalid-feedback">
               Por favor digite un nombre.
             </div>
@@ -31,15 +31,15 @@
         <div class="mb-3">
           <label for="BlogDescription" class="form-label">Descripción</label>
           <div class="input-group has-validation">
-            <textarea class="form-control" id="BlogDescription" aria-describedby="inputGroupPrepend" required name="description">{{ blog.description }}</textarea>
+            <textarea class="form-control" id="BlogDescription" aria-describedby="inputGroupPrepend" required name="description">{{ object.description }}</textarea>
             <div class="invalid-feedback">
               Por favor digite una descripción.
             </div>
           </div>
         </div>
         <button class="btn btn-primary mb-3" type="submit">Enviar</button>
+        <button class="btn btn-danger mb-3" onclick="javascript:history.back();">Cancelar</button>
       </form>
-
     </div>
   </div>
 </div>

@@ -36,9 +36,9 @@
       </div>
 
       {% if user.is_authenticated %}
-        {% if user == blog.organization.user %}
+        {% if user == object.organization.user %}
           <div class="mt-3 d-flex justify-content-center">
-            <a class="btn btn-success" href="{% url 'blog_edit' blog.id %}">Editar</a>
+            <a class="btn btn-success" href="{% url 'blog_edit' object.id %}">Editar</a>
             <div class="mx-2 mt-1" style="width: 0; height: 30px; border: 1px solid #ccc;"></div>
             <a class="btn btn-danger" href="#" data-bs-toggle="modal" data-bs-target="#deleteModel">Eliminar</a>
 
@@ -50,12 +50,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    Desea eliminar a la mascota: <br>
-                    <strong> {{ blog.name }} </strong>
+                    Desea eliminar: <br>
+                    <strong> {{ object.name }} </strong>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <form action="{% url 'blog_delete' pk=blog.id %}" method="POST">{% csrf_token %}
+                    <form action="{% url 'blog_delete' pk=object.id %}" method="POST">{% csrf_token %}
                       <button type="submit" class="btn btn-danger">Aceptar</button>
                     </form>
                   </div>
@@ -69,20 +69,20 @@
     <div class="row my-4">
       <div class="col-md-1"></div>
       <div class="col-md-6">
-        <p class="text-center"> <strong> {{ blog.name }} </strong> </p>
+        <p class="text-center"> <strong> {{ object.name }} </strong> </p>
         <br>
-        {{ blog.description }}
+        {{ object.description }}
       </div>
       <div class="col-md-1"></div>
       <div class="col-md-3">
         <div class="mx-auto" style="width: 300px;">
-          {% if blog.organization.img %}
-            <img src="{{ blog.organization.img.url }}" class="rounded" alt="" width="300" height="200">
+          {% if object.organization.img %}
+            <img src="{{ object.organization.img.url }}" class="rounded" alt="" width="300" height="200">
           {% else %}
             <img src="{% static 'img/logo/cubierta.png'%}" class="rounded" alt="" width="300" height="200">
           {% endif %}
         </div>
-        <a href="/organization/{{ blog.organization.id }}" class="btn btn-primary d-block mt-2">Contáctanos</a>
+        <a href="/organization/{{ object.organization.id }}" class="btn btn-primary d-block mt-2">Contáctanos</a>
       </div>
     </div>
   </div>
