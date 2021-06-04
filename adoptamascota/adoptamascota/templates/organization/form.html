@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% load static %}
-{% block title %}Adopta Mascotas{% endblock %}
+{% block title %}Adopta Mascotas - Formulario{% endblock %}
 {% block content %}
 
 <div class="container shadow-sm rounded px-3" style="background-image: url('{% static 'img/banner-2.jpg' %}'); margin-bottom: 100px;">
@@ -42,17 +42,17 @@
           <div class="input-group has-validation">
             <input type="text" class="form-control" id="OrgSupport" aria-describedby="inputGroupPrepend" required name="support" value="{{ organization.support }}">
             <div class="invalid-feedback">
-              Por favor digite un apoyo.
+              Por favor digite un medio para donar.
             </div>
           </div>
         </div>
 
         <div class="mb-3">
-          <label for="OrgMail" class="form-label">Correo</label>
+          <label for="OrgMail" class="form-label">Email</label>
           <div class="input-group has-validation">
             <input type="text" class="form-control" id="OrgMail" aria-describedby="inputGroupPrepend" required name="mail" value="{{ organization.mail }}">
             <div class="invalid-feedback">
-              Por favor digite un correo.
+              Por favor digite un email.
             </div>
           </div>
         </div>
@@ -121,10 +121,11 @@
             <input type="text" class="form-control" name="tw_url" value="{{ organization.tw_url }}">
           </div>
         </div>
-
-        <button class="btn btn-primary mb-3" type="submit">Enviar</button>
+        <div>
+          <button class="btn btn-primary mb-3" type="submit">Enviar</button>
+          <button class="btn btn-danger mb-3" onclick="javascript:history.back();">Cancelar</button>
+        </div>
       </form>
-
     </div>
   </div>
 </div>

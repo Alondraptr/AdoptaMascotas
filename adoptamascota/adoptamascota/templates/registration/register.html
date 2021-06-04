@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% load static %}
-{% block title %}Adopta Mascotas{% endblock %}
+{% block title %}Regístrate{% endblock %}
 {% block content %}
 <br>
   <div class="container shadow-sm rounded px-3" style="background-image: url('{% static 'img/banner-2.jpg' %}'); margin-bottom: 100px;">
@@ -9,7 +9,7 @@
       <div class="col-lg-6 col-md-12 my-3" style="background-color: rgba(255, 255, 255, 0.6);">
         <h1 class="text-center">
           <i class="fas fa-paw"></i>
-          Registrate
+          Regístrate
           <i class="fas fa-paw"></i>
         </h1>
         <form  method="POST"  class="g-3 needs-validation" novalidate> {% csrf_token %}
@@ -34,6 +34,14 @@
           </div>
 
           <div class="mb-3">
+            <p>La contraseña debe contener: </p>
+            <div>
+              <ul>
+              <li>Al menos 8 caracteres</li>
+              <li>Debe contener al menos un número y una letra</li>
+              <li>Debe contener al menos una mayúscula</li>
+            </ul>
+            </div>
             <label for="validationCustomUsername" class="form-label">Contraseña</label>
             <div class="input-group has-validation">
               <input type="password" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" name="password1"equired>
@@ -52,8 +60,8 @@
               </div>
             </div>
           </div>
-
           <button class="btn btn-primary mb-3" type="submit">Enviar</button>
+          <button class="btn btn-danger mb-3" onclick="javascript:history.back();">Cancelar</button>
         </form>
       </div>
     </div>

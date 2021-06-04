@@ -24,6 +24,7 @@ SECRET_KEY = 'eegs850*0iq!zy+-0uw+=(1@oj4ug^%=ufg*0irz_8=kdra!kg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap4',
+    'django_filters',
     'users',
     'adoptamascota',
     'organization',

@@ -10,7 +10,7 @@ class Pet(models.Model):
     breed = models.CharField(max_length=100, default='No se sabe')    # Raza
     age = models.IntegerField()
     castrated = models.BooleanField()
-    illness = models.CharField(max_length=250, blank=True, default='') # Enfermedad
+    illness = models.CharField(max_length=250, blank=True) # Enfermedad
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

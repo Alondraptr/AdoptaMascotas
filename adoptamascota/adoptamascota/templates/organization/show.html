@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% load static %}
-{% block title %}Adopta Mascotas{% endblock %}
+{% block title %}Organización{% endblock %}
 {% block content %}
   <div class="container bg-white shadow-sm rounded" style="margin-bottom: 55px;">
     <h1 class="text-center mt-2">Apoyanos</h1>
@@ -8,7 +8,7 @@
     <div class="row pb-3">
       <div class="col-md-5"></div>
       <div class="col-md-7">
-        <h4 class="text-center">{{ organization.name }}</h4>
+        <h4 class="text-center">{{ object.name }}</h4>
       </div>
       <div class="col-md-5">
       {%if organization.img%}
@@ -69,11 +69,11 @@
               {{ organization.support }}
             </li>
             <li class="list-group-item">
-              <strong> Correo: </strong>
+              <strong> Email: </strong>
               {{ organization.mail }}
             </li>
             <li class="list-group-item">
-              <strong> Telefono: </strong>
+              <strong> Teléfono: </strong>
               {{ organization.phone }}
             </li>
           </ul>
