@@ -80,7 +80,6 @@ class PetUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
         organization = Organization.objects.get(user=user)
         return Pet.objects.filter(organization=organization.id)
 
-
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)

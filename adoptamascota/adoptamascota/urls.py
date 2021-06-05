@@ -35,6 +35,7 @@ urlpatterns = [
     path('organization/edit/<int:pk>', OrganizationUpdateView.as_view(template_name = "organization/form.html"), name='org_edit'),
     path('organization/delete/<int:pk>', OrganizationDeleteView.as_view(), name='org_delete'),
 
+
     path('pet/', PetListView.as_view(template_name = "pet/index.html"), name='pet_index'),
     path('pet/org', OrgListView.as_view(template_name = "pet/org_pets.html"), name='org_pets'),
     path('pet/<int:pk>', PetDetailView.as_view(template_name = "pet/show.html"), name='pet_show'),
@@ -52,8 +53,7 @@ urlpatterns = [
     path('accounts/profile', users_views.profile, name='profile'),
 
     path('', views.index, name='index'),
-    path('blog/', views.blog, name='blog'),
-
+    path('contact_admin/', views.contactAdmin, name='contact_admin'),
 ]
 
 #Add Django site authentication urls (for login, logout, password management)

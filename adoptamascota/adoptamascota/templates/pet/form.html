@@ -9,7 +9,7 @@
     <div class="col-lg-6 col-md-12 my-3" style="background-color: rgba(255, 255, 255, 0.6);">
       <h1 class="text-center">
       <i class="fas fa-paw"></i>
-      Nueva Mascota
+      Mascota
       <i class="fas fa-paw"></i>
       </h1>
       <hr>
@@ -17,6 +17,7 @@
         {% csrf_token %}
         <input type="hidden" name="organization" value="{{organization}}">
         <div class="mb-3">
+         <div style="color:red;"> {{ form.name.errors }}</div>
           <label for="PetName" class="form-label">Nombre</label>
           <div class="input-group has-validation">
             <input type="text" class="form-control" id="PetName" aria-describedby="inputGroupPrepend" required name="name" value="{{ object.name }}">
@@ -27,6 +28,7 @@
         </div>
 
         <div class="mb-3">
+          <div style="color:red;">{{ form.description.errors }}</div>
           <label for="PetDescription" class="form-label">Descripción</label>
           <div class="input-group has-validation">
             <textarea class="form-control" id="PetDescription" aria-describedby="inputGroupPrepend" required name="description">{{ object.description }}</textarea>
@@ -50,6 +52,7 @@
         </div>
 
         <div class="mb-3">
+          <div style="color:red;">{{ form.breed.errors }}</div>
           <label for="PetBreed" class="form-label">Raza</label>
           <div class="input-group">
             <input type="text" class="form-control" id="PetBreed" aria-describedby="inputGroupPrepend" name="breed" value="{% if object.breed %}{{ object.breed }}{% else %}No se sabe{% endif %}">
@@ -57,6 +60,7 @@
         </div>
 
         <div class="mb-3">
+          <div style="color:red;">{{ form.age.errors }}</div>
           <label for="PetAge" class="form-label">Edad</label>
           <div class="input-group has-validation">
             <input type="number" class="form-control" id="PetAge" min="1" max="20" required name="age" value="{{ object.age }}">
@@ -76,6 +80,7 @@
         </div>
 
         <div class="mb-3">
+          <div style="color:red;">{{ form.illness.errors }}</div>
           <label for="PetIllness" class="form-label">Enfermedades</label>
           <div class="input-group">
             <textarea class="form-control" id="PetIllness" aria-describedby="inputGroupPrepend" name="illness">{% if object.illness %}{{ object.illness }}{% else %}No tiene{% endif %}</textarea>

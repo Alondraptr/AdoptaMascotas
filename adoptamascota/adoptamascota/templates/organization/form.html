@@ -9,7 +9,7 @@
     <div class="col-lg-6 col-md-12 my-3" style="background-color: rgba(255, 255, 255, 0.6);">
       <h1 class="text-center">
         <i class="fas fa-paw"></i>
-          Nueva Organización
+           Organización
         <i class="fas fa-paw"></i>
       </h1>
 
@@ -17,6 +17,7 @@
       <form class="g-3 needs-validation" novalidate method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="mb-3">
+          <div style="color:red;">{{ form.name.errors }}</div>
           <label for="OrgName" class="form-label">Nombre</label>
           <input type="hidden" name="user" value="{{user.id}}">
           <div class="input-group has-validation">
@@ -28,6 +29,7 @@
         </div>
 
         <div class="mb-3">
+          <div style="color:red;">{{ form.description.errors }}</div>
           <label for="OrgDescription" class="form-label">Descripción</label>
           <div class="input-group has-validation">
             <textarea class="form-control" id="OrgDescription" aria-describedby="inputGroupPrepend" required name="description">{{ organization.description }}</textarea>
@@ -38,7 +40,8 @@
         </div>
 
         <div class="mb-3">
-          <label for="OrgSupport" class="form-label">Apoyo</label>
+          <div style="color:red;">{{ form.support.errors }}</div>
+          <label for="OrgSupport" class="form-label">Ingresa medio para donar</label>
           <div class="input-group has-validation">
             <input type="text" class="form-control" id="OrgSupport" aria-describedby="inputGroupPrepend" required name="support" value="{{ organization.support }}">
             <div class="invalid-feedback">
@@ -48,6 +51,7 @@
         </div>
 
         <div class="mb-3">
+          <div style="color:red;">{{ form.mail.errors }}</div>
           <label for="OrgMail" class="form-label">Email</label>
           <div class="input-group has-validation">
             <input type="text" class="form-control" id="OrgMail" aria-describedby="inputGroupPrepend" required name="mail" value="{{ organization.mail }}">
@@ -58,6 +62,7 @@
         </div>
 
         <div class="mb-3">
+          <div style="color:red;">{{ form.phone.errors }}</div>
           <label for="OrgPhone" class="form-label">Teléfono</label>
           <div class="input-group has-validation">
             <input type="text" class="form-control" id="OrgPhone" aria-describedby="inputGroupPrepend" required name="phone" value="{{ organization.phone }}">
@@ -81,6 +86,7 @@
         </div>
 
         <div class="mb-3">
+          <div style="color:red;">{{ form.img.errors }}</div> 
           <label for="OrgImg" class="form-label">Imagen</label>
           <div class="input-group has-validation">
             <input type="file" class="form-control" accept="image/*" id="OrgImg" aria-describedby="inputGroupPrepend" name="img" >
@@ -95,6 +101,7 @@
         </div>
 
         <div class="mb-3">
+          <div style="color:red;">{{ form.fb_url.errors }}</div>
           <label for="Orgfb_url" class="form-label">Facebook</label>
           <div class="input-group">
             <input type="text" class="form-control" name="fb_url" value="{{ organization.fb_url }}">
@@ -102,6 +109,7 @@
         </div>
 
         <div class="mb-3">
+          <div style="color:red;">{{ form.ig_url.errors }}</div>
           <label for="Orgig_url" class="form-label">Instagram</label>
           <div class="input-group">
             <input type="text" class="form-control" name="ig_url" value="{{ organization.ig_url }}">
@@ -109,6 +117,7 @@
         </div>
 
         <div class="mb-3">
+          <div style="color:red;">{{ form.yt_url.errors }}</div>
           <label for="Orgyt_url" class="form-label">YouTube</label>
           <div class="input-group">
             <input type="text" class="form-control" name="yt_url" value="{{ organization.yt_url }}">
@@ -116,6 +125,7 @@
         </div>
 
         <div class="mb-3">
+          <div style="color:red;">{{ form.tw_url.errors }}</div>
           <label for="Orgtw_url" class="form-label">Twitter</label>
           <div class="input-group">
             <input type="text" class="form-control" name="tw_url" value="{{ organization.tw_url }}">
@@ -123,7 +133,6 @@
         </div>
         <div>
           <button class="btn btn-primary mb-3" type="submit">Enviar</button>
-          <button class="btn btn-danger mb-3" onclick="javascript:history.back();">Cancelar</button>
         </div>
       </form>
     </div>

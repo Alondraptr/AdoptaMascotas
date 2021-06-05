@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% load static %}
-{% block title %}Adopta Mascotas{% endblock %}
+{% block title %}Adopta Mascotas - Formulario{% endblock %}
 {% block content %}
 
 <div class="container shadow-sm rounded px-3" style="background-image: url('{% static 'img/banner-2.jpg' %}'); margin-bottom: 100px;">
@@ -9,7 +9,7 @@
     <div class="col-lg-6 col-md-12 my-3" style="background-color: rgba(255, 255, 255, 0.6);">
       <h1 class="text-center">
         <i class="fas fa-paw"></i>
-          Nuevo Blog
+          Blog
         <i class="fas fa-paw"></i>
       </h1>
 
@@ -19,6 +19,7 @@
         <input type="hidden" name="organization" value="{{ org_id }}">
 
         <div class="mb-3">
+          <div style="color:red;">{{ form.name.errors }} </div>  
           <label for="BlogName" class="form-label">Nombre</label>
           <div class="input-group has-validation">
             <input type="text" class="form-control" id="BlogName" aria-describedby="inputGroupPrepend" required name="name" value="{{ object.name }}">
@@ -29,6 +30,7 @@
         </div>
 
         <div class="mb-3">
+          <div style="color:red;">{{ form.description.errors }}</div>
           <label for="BlogDescription" class="form-label">Descripción</label>
           <div class="input-group has-validation">
             <textarea class="form-control" id="BlogDescription" aria-describedby="inputGroupPrepend" required name="description">{{ object.description }}</textarea>
