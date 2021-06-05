@@ -21,6 +21,21 @@ class BlogListView(ListView):
 class BlogDetailView(DetailView):
     model = Blog
 
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        images_url = []
+        if self.object.img_1:
+            images_url.append(self.object.img_1.url)
+        if self.object.img_2:
+            images_url.append(self.object.img_2.url)
+        if self.object.img_3:
+            images_url.append(self.object.img_3.url)
+        if self.object.img_4:
+            images_url.append(self.object.img_4.url)
+        context['images_url'] = images_url
+        return context
+
 class BlogCreateView(LoginRequiredMixin, CreateView):
     model = Blog
     form_class = BlogForm

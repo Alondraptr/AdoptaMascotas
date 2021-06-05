@@ -50,10 +50,10 @@
       {% for pet in pets%}
       <div class="col-xl-3 col-sm-6 mb-2">
         <div class="card">
-          {%if pet.img%}
-                <img src="{{ pet.img.url }}" class="card-img-top" alt="..." height="175">
+          {%if pet.img_1%}
+                <img src="{{ pet.img_1.url }}" class="card-img-top" alt="..." height="175">
             {%else%}
-                 <img src="{% static 'img/cv-1.jpg' %}" class="card-img-top" alt="..." height="175">
+                 <img src="{% static 'img/logo/cubierta.png' %}" class="card-img-top" alt="..." height="175">
             {%endif%}
           <div class="card-body">
             <p class="card-text">{{pet.name}}</p>
@@ -69,19 +69,19 @@
     <hr>
 
     <h4 class="text-center mt-4"> <i class="fas fa-paw"></i> Organizaciones <i class="fas fa-paw"></i> </h4>
-    
-    <div style="width: 80%;" class="row mx-auto pb-2">  
+
+    <div style="width: 80%;" class="row mx-auto pb-2">
     {% for organization in organizations %}
       <div class="col-lg-3 col-sm-6 d-flex justify-content-center p-0 mb-2 px-1">
         <br>
         {%if organization.img%}
           <img src="{{ organization.img.url }}"  alt="" height="150" class="shadow" style="width: 100%;">
        {%else%}
-          <img src="{% static 'img/logo/cubierta.png'%}" alt="" height="150" class="shadow" style="width: 100%;"> 
+          <img src="{% static 'img/logo/cubierta.png'%}" alt="" height="150" class="shadow" style="width: 100%;">
        {%endif%}
-        
+
       </div>
-    {% endfor %}  
+    {% endfor %}
     </div>
   </div>
 {% endblock content%}

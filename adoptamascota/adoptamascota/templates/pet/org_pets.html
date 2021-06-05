@@ -19,7 +19,11 @@
             {% for pet in object_list %}
         <div class="col-xl-3 col-sm-6 mb-2">
           <div class="card">
-            <img src="{% static 'img/cv-1.jpg' %}" class="card-img-top" alt="..." height="175">
+            {%if pet.img_1%}
+              <img src="{{ pet.img_1.url }}" class="card-img-top" alt="..." height="175">
+            {%else%}
+              <img src="{% static 'img/logo/cubierta.png' %}" class="card-img-top" alt="..." height="175">
+            {%endif%}
             <div class="card-body">
               <p class="card-text text-center"> {{ pet.name }} </p>
               <div class="d-flex justify-content-center">

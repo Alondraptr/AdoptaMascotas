@@ -10,6 +10,11 @@ class PetForm(forms.ModelForm):
     castrated = forms.BooleanField(required=False, initial=False)
     illness = forms.CharField(max_length=250, required=False)
 
+    img_1 = forms.ImageField(required=False)
+    img_2 = forms.ImageField(required=False)
+    img_3 = forms.ImageField(required=False)
+    img_4 = forms.ImageField(required=False)
+
     class Meta:
         model = Pet
         fields = '__all__'

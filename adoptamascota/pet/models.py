@@ -11,6 +11,12 @@ class Pet(models.Model):
     age = models.IntegerField()
     castrated = models.BooleanField()
     illness = models.CharField(max_length=250, blank=True) # Enfermedad
+
+    img_1 = models.ImageField(upload_to='pet_img', blank=True, default='')
+    img_2 = models.ImageField(upload_to='pet_img', blank=True, default='')
+    img_3 = models.ImageField(upload_to='pet_img', blank=True, default='')
+    img_4 = models.ImageField(upload_to='pet_img', blank=True, default='')
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

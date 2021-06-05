@@ -37,6 +37,63 @@
             </div>
           </div>
         </div>
+
+        <div class="mb-3">
+          <label for="Img1" class="form-label">Imagen principal</label>
+          <div class="input-group">
+            <input type="file" class="form-control" accept="image/*" id="Img1" aria-describedby="inputGroupPrepend" name="img_1" >
+          </div>
+          {%if object.img_1%}
+            <div>
+              <br>
+              <p>Imagen:</p>
+               <img src="{{object.img_1.url}}" height="100" wigth="100" alt="...">
+            </div>
+          {%endif%}
+        </div>
+
+        <div class="mb-3">
+          <label for="Img1" class="form-label">Imagen #2</label>
+          <div class="input-group">
+            <input type="file" class="form-control" accept="image/*" id="Img2" aria-describedby="inputGroupPrepend" name="img_2" >
+          </div>
+          {%if object.img_2%}
+            <div>
+              <br>
+              <p>Imagen:</p>
+               <img src="{{object.img_2.url}}" height="100" wigth="100" alt="...">
+            </div>
+          {%endif%}
+        </div>
+
+        <div class="mb-3">
+          <label for="Img1" class="form-label">Imagen #3</label>
+          <div class="input-group">
+            <input type="file" class="form-control" accept="image/*" id="Img3" aria-describedby="inputGroupPrepend" name="img_3" >
+          </div>
+          {%if object.img_3%}
+            <div>
+              <br>
+              <p>Imagen:</p>
+               <img src="{{object.img_3.url}}" height="100" wigth="100" alt="...">
+            </div>
+          {%endif%}
+        </div>
+
+        <div class="mb-3">
+          <label for="Img1" class="form-label">Imagen #4</label>
+          <div class="input-group">
+            <input type="file" class="form-control" accept="image/*" id="Img4" aria-describedby="inputGroupPrepend" name="img_4" >
+          </div>
+          {%if object.img_4%}
+            <div>
+              <br>
+              <p>Imagen:</p>
+               <img src="{{object.img_4.url}}" height="100" wigth="100" alt="...">
+            </div>
+          {%endif%}
+        </div>
+
         <button class="btn btn-primary mb-3" type="submit">Enviar</button>
         <button class="btn btn-danger mb-3" onclick="javascript:history.back();">Cancelar</button>
       </form>

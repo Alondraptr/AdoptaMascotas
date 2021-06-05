@@ -19,7 +19,11 @@
         <div class="card mb-3">
           <div class="row g-0">
             <div class="col-md-4">
-              <img class="w-100" src="{% static 'img/bl-1.jpg' %}" alt="..." style="height: 250px;">
+              {% if blog.img_1 %}
+                <img class="w-100" src="{{ blog.img_1.url }}" alt="..." style="height: 250px;">
+              {% else %}
+                <img class="w-100" src="{% static 'img/logo/cubierta.png' %}" alt="..." style="height: 250px;">
+              {% endif %}
             </div>
             <div class="col-md-8 position-relative">
               <div class="card-body">
