@@ -57,7 +57,7 @@ class OrganizationCreateView(LoginRequiredMixin, CreateView):
 
 class OrganizationUpdateView(LoginRequiredMixin,SuccessMessageMixin, UpdateView):
     model = Organization
-   #form_class = OrganizationForm
+    form_class = OrganizationForm
     template_name = 'organization/form.html'
 
     def get_context_data(self, **kwargs):
