@@ -75,9 +75,11 @@
       <div class="col-lg-3 col-sm-6 d-flex justify-content-center p-0 mb-2 px-1">
         <br>
         {%if organization.img%}
-          <img src="{{ organization.img.url }}"  alt="" height="150" class="shadow" style="width: 100%;">
+          <a href="{% url 'org_show' organization.id %}"><img src="{{ organization.img.url }}"  alt="" height="150" class="shadow" style="width: 100%;"></a>
+          
        {%else%}
-          <img src="{% static 'img/logo/cubierta.png'%}" alt="" height="150" class="shadow" style="width: 100%;"> 
+          <a href="{% url 'org_show' organization.id %}"> <img src="{% static 'img/logo/cubierta.png'%}" alt="" height="150" class="shadow" style="width: 100%;"> </a>
+         
        {%endif%}
         
       </div>

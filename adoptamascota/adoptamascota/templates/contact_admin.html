@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}Contactanos{% endblock %}
+{% block content %}
+
+<!-- <h1>¡Escribenos!</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="form-actions">
+      <button type="submit">Enviar</button>
+    </div>
+</form> --> 
+ <br>
+  <div class="container shadow-sm rounded px-3" style="background-image: url('{% static 'img/banner-2.jpg' %}'); margin-bottom: 100px;">
+    <div class="row">
+      <div class="col-lg-6 col-md-12 my-3" style="background-color: rgba(255, 255, 255, 0.6);">
+        <h1 class="text-center">
+          <i class="fas fa-paw"></i>
+          Contacta al Administrador
+          <i class="fas fa-paw"></i>
+        </h1>
+       <form class="g-3 needs-validation" method="post" novalidate>
+        {% csrf_token %}
+        <div class="col-md-6">
+          <div class="row mt-2">
+            <div class="col-3">
+              <div style="color:red;">{{ form.subject.errors }}</div>
+              <label  for="form-title" class="col-form-label">Titulo del mensaje</label>
+            </div>
+            <div class="col-8">
+              <input type="text" id="form-title" name="subject"class="form-control" required>
+              <div class="invalid-feedback">
+                Por favor rellenar este campo
+              </div>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-3">
+               <div style="color:red;">{{ form.from_email.errors }}</div>
+              <label for="form-email" class="col-form-label">Email:</label>
+            </div>
+            <div class="col-8">
+              <input type="text" id="form-email"name="from_email"  class="form-control" required>
+              <div class="invalid-feedback">
+                Por favor rellenar este campo
+              </div>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-3">
+              <div style="color:red;">{{ form.message.errors }}</div>
+              <label  for="form-mensaje" class="col-form-label">Mensaje</label>
+            </div>
+            <div class="col-9">
+              <textarea type="text" name="message"id="form-mensaje" class="form-control" required></textarea>
+              <div class="invalid-feedback">
+                Por favor rellenar este campo
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center my-2">
+          <button class="btn btn-primary" type="submit">Enviar</button>
+          <button class="btn btn-danger mb-3" onclick="javascript:history.back();">Cancelar</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+{%endblock%}

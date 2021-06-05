@@ -19,6 +19,7 @@
   {% url 'org_pets' as orgpets %}
   {% url 'pet_index' as pet %}
   {% url 'blog' as blog %}
+  {% url 'contact_admin' as admin_contact%}
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2D728F;">
     <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,7 +63,8 @@
           <ul class="list-unstyled text-center">
             <li class="mb-4"> <h4> <a href="index.html" class="link-footer"> Inicio </a> </h4> </li>
             <li class="mb-4"> <h4> <a href="adopta_index.html" class="link-footer"> Adopta </a> </h4> </li>
-            <li class="mb-4"> <h4> <a href="organizaciones_index.html" class="link-footer"> Organizaciones </a> </h4> </li>
+            <li class="mb-4"> <h4> <a href="organizaciones_index.html" class="link-footer"> Organizaciones </a> </h4> </li> 
+            <li class="mb-4"><h4><a href="{% url 'contact_admin'%}" class="link-footer" >Contáctanos</a></h4></li>
           </ul>
         </div>
         <div class="col-md-4">

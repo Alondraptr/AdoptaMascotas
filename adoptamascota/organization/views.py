@@ -17,13 +17,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 #            form.save()
 #            return redirect('index')
 #        else:
-#            # TODO: Rael hace lo que tenes que hacer
 #            return render(request,'organization/form.html',{'form': form, 'erros': form.errors})
 #    else:
 #        form = OrganizationForm()
 #
 #    return render(request,'organization/form.html',{'form': form})
-
 
 class OrganizationListView(ListView):
     model = Organization
@@ -59,7 +57,7 @@ class OrganizationCreateView(LoginRequiredMixin, CreateView):
 
 class OrganizationUpdateView(LoginRequiredMixin,SuccessMessageMixin, UpdateView):
     model = Organization
-    form_class = OrganizationForm
+   #form_class = OrganizationForm
     template_name = 'organization/form.html'
 
     def get_context_data(self, **kwargs):
@@ -77,3 +75,4 @@ class OrganizationDeleteView( LoginRequiredMixin, DeleteView):
     model = Organization
     template_name = 'organization/show.html'
     success_url = reverse_lazy('org_index')
+
